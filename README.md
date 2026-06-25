@@ -1,6 +1,6 @@
 # Cultural Heritage and Museum Ontology
 
-## OWL 2 Implimentation using pro Protégé
+## OWL 2 Implementation using Protégé
 
 ---
 
@@ -8,7 +8,7 @@
 
 This ontology belongs to the **Cultural Heritage and Museum Management Domain**.
 
-It provides a semantic representation of cultural heritage resources, museum collections, exhibitions, historical contexts, conservation activities, and digital documentation resources.
+It provides a semantic representation of cultural heritage resources, museum collections, artworks, artifacts, exhibitions, historical periods, conservation activities, materials, locations, and digital documentation resources.
 
 The ontology is intended to support knowledge organization, semantic interoperability, and automated reasoning within museum and heritage information systems.
 
@@ -22,7 +22,7 @@ The ontology is intended to support knowledge organization, semantic interoperab
 | Serialization Format | RDF/XML |
 | Ontology Editor | Protégé Desktop |
 | Reasoner | HermiT |
-| Ontology File | CulturalHeritageOntology.owl |
+| Ontology File | CulturalHeritageOntology_SMALL_30_CLASSES.owl |
 
 ---
 
@@ -36,22 +36,22 @@ https://protege.stanford.edu/
 
 ### Step 2 – Open the Ontology
 
-1. Launch Protégé.
+1. Launch **Protégé**.
 2. Select **File → Open**.
 3. Choose:
 
 ```text
-CulturalHeritageOntology.owl
+CulturalHeritageOntology_SMALL_30_CLASSES.owl
 ```
 
 ### Step 3 – Explore the Ontology
 
 After loading the ontology:
 
-- Open the Classes tab.
-- Open the Object Properties tab.
-- Open the Data Properties tab.
-- Open the Individuals tab.
+- Open the **Classes** tab.
+- Open the **Object Properties** tab.
+- Open the **Data Properties** tab.
+- Open the **Individuals** tab.
 - Review ontology metrics and hierarchy.
 
 ### Step 4 – Run the Reasoner
@@ -80,8 +80,8 @@ The ontology was developed to:
 
 - Model cultural heritage knowledge semantically.
 - Represent museum collections and exhibitions.
-- Describe historical and cultural artifacts.
-- Support conservation and restoration records.
+- Describe artworks and cultural artifacts.
+- Support conservation and restoration activities.
 - Enable semantic querying and reasoning.
 - Facilitate interoperability between heritage information systems.
 
@@ -89,7 +89,7 @@ The ontology was developed to:
 
 ## 5. Conceptual Model
 
-The ontology contains a rich hierarchy of concepts representing the museum and cultural heritage domain.
+The ontology contains **30 Classes**.
 
 ### Heritage Resource Classes
 
@@ -101,8 +101,6 @@ The ontology contains a rich hierarchy of concepts representing the museum and c
 - Manuscript
 - Coin
 - Textile
-- CeramicObject
-- ArchaeologicalObject
 - HeritageSite
 
 ### Human and Organizational Classes
@@ -110,151 +108,111 @@ The ontology contains a rich hierarchy of concepts representing the museum and c
 - Agent
 - Artist
 - Curator
-- Visitor
-- Researcher
 - Conservator
-- Collector
+- Researcher
 - Museum
-- Gallery
 - CulturalInstitution
 
 ### Collection and Exhibition Classes
 
 - Collection
-- PermanentCollection
-- TemporaryCollection
 - Exhibition
-- PermanentExhibition
-- TemporaryExhibition
-- OnlineExhibition
 - Archive
-- DigitalRepository
 
 ### Contextual Classes
 
 - HistoricalPeriod
 - Event
-- DiscoveryEvent
-- RestorationEvent
 - AcquisitionEvent
+- RestorationEvent
 - ExhibitionEvent
 - Location
 - Country
 - City
-- ArchaeologicalSite
 
-### Documentation Classes
+### Documentation and Material Classes
 
 - MediaObject
 - Image
-- Video
-- AudioRecording
-- ThreeDScan
-- ConservationRecord
-- ResearchPublication
-
-### Technical Classes
-
 - Material
-- Technique
-- Device
-- Camera
-- Scanner
-- Sensor
 
 ---
 
 ## 6. Semantic Relationships
 
-The ontology defines semantic links through object properties.
-
-### Examples
+The ontology defines object properties including:
 
 - hasCreator
 - displayedIn
 - belongsToCollection
 - associatedWithPeriod
 - madeOf
-- usesTechnique
 - curatedBy
 - organizedBy
 - locatedIn
-- discoveredAt
 - documentedIn
 - restoredBy
-- archivedIn
-- digitizedBy
+- restoresObject
 - preservedBy
 - references
-- citedIn
-- participatesInExhibition
-- supervisedBy
-- evaluatedBy
-- influencedBy
-- inspiredBy
 - owns
 - manages
+- hasLocation
+- participatesInEvent
+- acquiresObject
+- exhibitsObject
+- hasPart
 
-These relationships connect heritage resources with people, institutions, events, and locations.
+These relationships connect heritage resources with people, institutions, materials, events, collections, and locations.
 
 ---
 
 ## 7. Descriptive Attributes
 
-Datatype properties are used to describe entities and resources.
-
-### Examples
+Datatype properties include:
 
 - hasTitle
 - hasDescription
 - inventoryNumber
-- accessionNumber
-- archiveCode
 - creationDate
 - acquisitionDate
-- discoveryDate
-- restorationDate
-- publicationYear
-- restorationCost
+- conditionStatus
 - height
 - width
-- depth
-- weight
-- conditionStatus
-- conservationLevel
-- materialType
-- techniqueName
 - estimatedValue
 - fileFormat
-- scanResolution
+- publicationYear
+- materialType
 
 ---
 
 ## 8. Modeling Strategy
 
-The ontology follows several ontology engineering principles.
-
 ### Agent Abstraction
 
 The superclass **Agent** is used to represent both people and organizations participating in museum activities.
 
-### Separation of Physical and Digital Resources
+### Cultural Object Modeling
 
-Digital documentation resources are represented separately from physical heritage objects.
+The ontology separates artworks, artifacts, and heritage sites into specialized subclasses.
 
 ### Event-Based Representation
 
-Historical processes such as discovery, acquisition, restoration, and exhibitions are modeled through dedicated event classes.
+Acquisition, restoration, and exhibition activities are represented through dedicated event classes.
 
-### Conservation-Oriented Design
+### Location Modeling
 
-Conservation activities and preservation records are explicitly represented to support museum management workflows.
+Countries and cities are represented as subclasses of **Location**.
+
+### Digital Documentation
+
+Media resources are modeled separately from physical cultural heritage objects.
 
 ---
 
 ## 9. OWL 2 Features Utilized
 
-The ontology employs several OWL 2 constructs:
+The ontology employs:
 
 - Class hierarchies
 - Subclass relations
@@ -268,10 +226,9 @@ The ontology employs several OWL 2 constructs:
 - Symmetric properties
 - Existential restrictions
 - Disjoint classes
+- Named individuals
 - Ontology IRI declaration
 - RDF/XML serialization
-
-These constructs improve semantic expressiveness and reasoning capabilities.
 
 ---
 
@@ -279,35 +236,69 @@ These constructs improve semantic expressiveness and reasoning capabilities.
 
 ### The Starry Night
 
-- TheStarryNight : Painting
-- VincentVanGogh : Artist
-- MuseumOfModernArt : Museum
-- PostImpressionism : HistoricalPeriod
+#### Individual
 
-**Relationships:**
+**TheStarryNight : Painting**
 
-- TheStarryNight hasCreator VincentVanGogh
-- TheStarryNight displayedIn MuseumOfModernArt
-- TheStarryNight associatedWithPeriod PostImpressionism
+#### Relationships
 
-### Mona Lisa
+- hasCreator → VincentVanGogh
+- displayedIn → MuseumOfModernArt
+- associatedWithPeriod → PostImpressionism
+- madeOf → OilPaint
 
-- MonaLisa : Painting
-- LeonardoDaVinci : Artist
-- LouvreMuseum : Museum
-- Renaissance : HistoricalPeriod
+#### Attributes
 
-**Relationships:**
-
-- MonaLisa hasCreator LeonardoDaVinci
-- MonaLisa displayedIn LouvreMuseum
-- MonaLisa associatedWithPeriod Renaissance
+- hasTitle = "The Starry Night"
+- inventoryNumber = "MOMA-001"
+- conditionStatus = "Stable"
 
 ---
 
-## 11. Consistency Verification
+### Mona Lisa
 
-The ontology was validated using the **HermiT reasoner** within Protégé.
+#### Individual
+
+**MonaLisa : Painting**
+
+#### Relationships
+
+- hasCreator → LeonardoDaVinci
+- displayedIn → LouvreMuseum
+- associatedWithPeriod → Renaissance
+- madeOf → OilPaint
+
+#### Attributes
+
+- hasTitle = "Mona Lisa"
+- inventoryNumber = "LOUVRE-001"
+- conditionStatus = "Protected"
+
+---
+
+## 11. Individuals Included
+
+The ontology contains **13 Sample Individuals**:
+
+- LeonardoDaVinci
+- LouvreCollection
+- LouvreMuseum
+- MoMACollection
+- MonaLisa
+- MuseumOfModernArt
+- NewYorkCity
+- OilPaint
+- ParisCity
+- PostImpressionism
+- Renaissance
+- TheStarryNight
+- VincentVanGogh
+
+---
+
+## 12. Consistency Verification
+
+The ontology was validated using the **HermiT Reasoner** within **Protégé**.
 
 ### Validation Procedure
 
@@ -319,15 +310,15 @@ The ontology was validated using the **HermiT reasoner** within Protégé.
 
 ### Result
 
-No logical inconsistencies were detected.
+**No logical inconsistencies were detected.**
 
-The ontology is logically valid and compatible with OWL 2 reasoning standards.
+The ontology is logically valid and compatible with **OWL 2 reasoning standards**.
 
 ---
 
-## 12. Project Summary
+## 13. Project Summary
 
-The **Smart Cultural Heritage and Museum Knowledge Ontology** provides a structured semantic framework for representing cultural heritage assets, museum collections, historical knowledge, conservation records, and digital documentation resources.
+The **Cultural Heritage and Museum Ontology** provides a structured semantic framework for representing cultural heritage assets, museum collections, artworks, artifacts, historical knowledge, conservation records, and digital documentation resources.
 
 The ontology supports:
 
@@ -338,4 +329,4 @@ The ontology supports:
 - Digital heritage documentation
 - Automated semantic reasoning
 
-The final ontology is fully compliant with **OWL 2 standards** and demonstrates the application of ontology engineering principles within the cultural heritage domain.
+The final ontology is fully compliant with **OWL 2 standards** and demonstrates ontology engineering principles within the **Cultural Heritage Domain**.
