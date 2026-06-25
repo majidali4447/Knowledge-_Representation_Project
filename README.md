@@ -12,6 +12,7 @@ It provides a semantic representation of cultural heritage resources, museum col
 
 The ontology is intended to support knowledge organization, semantic interoperability, and automated reasoning within museum and heritage information systems.
 
+
 ---
 
 ## 2. Development Environment
@@ -22,7 +23,7 @@ The ontology is intended to support knowledge organization, semantic interoperab
 | Serialization Format | RDF/XML |
 | Ontology Editor | Protégé Desktop |
 | Reasoner | HermiT |
-| Ontology File | CulturalHeritageOntology_SMALL_30_CLASSES.owl |
+| Ontology File |CulturalHeritageOntology1.owl |
 
 ---
 
@@ -40,8 +41,7 @@ https://protege.stanford.edu/
 2. Select **File → Open**.
 3. Choose:
 
-```text
-CulturalHeritageOntology_SMALL_30_CLASSES.owl
+```textCulturalHeritageOntology1.owl
 ```
 
 ### Step 3 – Explore the Ontology
@@ -208,9 +208,27 @@ Countries and cities are represented as subclasses of **Location**.
 
 Media resources are modeled separately from physical cultural heritage objects.
 
+## 9. Design Decisions
+
+### Agent Abstraction
+
+An abstract class **Agent** was introduced to represent individuals and organizations participating in museum and cultural heritage activities. This design improves conceptual clarity and supports future extensibility.
+
+### Cultural Heritage Object Hierarchy
+
+Cultural heritage resources were organized using a hierarchical class structure. **Painting** and **Sculpture** were modeled as subclasses of **Artwork**, while **Manuscript**, **Coin**, and **Textile** were modeled as subclasses of **Artifact**. This hierarchy enables semantic classification and reasoning.
+
+### Event-Based Modeling
+
+**AcquisitionEvent**, **RestorationEvent**, and **ExhibitionEvent** were modeled as specialized subclasses of **Event**. This approach supports historical tracking, provenance representation, and event-centered semantic reasoning.
+
+### Material and Location Modeling
+
+**Material** and **Location** were represented as independent classes rather than literal attributes. This design improves knowledge organization, allows richer semantic relationships, and facilitates future ontology expansion.
+
 ---
 
-## 9. OWL 2 Features Utilized
+## 10. OWL 2 Features Utilized
 
 The ontology employs:
 
@@ -220,19 +238,12 @@ The ontology employs:
 - Datatype properties
 - Domain restrictions
 - Range restrictions
-- Functional properties
-- Inverse properties
-- Transitive properties
-- Symmetric properties
-- Existential restrictions
-- Disjoint classes
 - Named individuals
 - Ontology IRI declaration
 - RDF/XML serialization
 
----
-
-## 10. Sample Knowledge Graph
+-----
+## 11. Sample Knowledge Graph
 
 ### The Starry Night
 
@@ -276,7 +287,7 @@ The ontology employs:
 
 ---
 
-## 11. Individuals Included
+## 12. Individuals Included
 
 The ontology contains **13 Sample Individuals**:
 
@@ -296,7 +307,7 @@ The ontology contains **13 Sample Individuals**:
 
 ---
 
-## 12. Consistency Verification
+## 13. Consistency Verification
 
 The ontology was validated using the **HermiT Reasoner** within **Protégé**.
 
@@ -316,7 +327,7 @@ The ontology is logically valid and compatible with **OWL 2 reasoning standards*
 
 ---
 
-## 13. Project Summary
+## 14. Project Summary
 
 The **Cultural Heritage and Museum Ontology** provides a structured semantic framework for representing cultural heritage assets, museum collections, artworks, artifacts, historical knowledge, conservation records, and digital documentation resources.
 
