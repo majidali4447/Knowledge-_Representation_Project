@@ -1,0 +1,882 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/culturalheritage-museum#"
+     xml:base="http://www.semanticweb.org/culturalheritage-museum"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/culturalheritage-museum">
+        <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <rdfs:comment>A compact OWL 2 ontology for museum collections, heritage objects, exhibitions, conservation, and digital documentation.</rdfs:comment>
+        <rdfs:label>Cultural Heritage and Museum Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#acquiresObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#acquiresObject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#AcquisitionEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>Links an acquisition event to the acquired object.</rdfs:comment>
+        <rdfs:label>acquiresObject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#associatedWithPeriod -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#associatedWithPeriod">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#HistoricalPeriod"/>
+        <rdfs:comment>Links an object to a historical period.</rdfs:comment>
+        <rdfs:label>associatedWithPeriod</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#belongsToCollection -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#belongsToCollection">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Collection"/>
+        <rdfs:comment>Links an object to its collection.</rdfs:comment>
+        <rdfs:label>belongsToCollection</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#curatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#curatedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Exhibition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Curator"/>
+        <rdfs:comment>Links an exhibition to its curator.</rdfs:comment>
+        <rdfs:label>curatedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#displayedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#displayedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Museum"/>
+        <rdfs:comment>Links an object to the museum where it is displayed.</rdfs:comment>
+        <rdfs:label>displayedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#documentedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#documentedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#MediaObject"/>
+        <rdfs:comment>Links an object to its documentation.</rdfs:comment>
+        <rdfs:label>documentedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#exhibitsObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#exhibitsObject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Exhibition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>Links an exhibition to an object displayed in it.</rdfs:comment>
+        <rdfs:label>exhibitsObject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#hasCreator -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#hasCreator">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artist"/>
+        <rdfs:comment>Links a heritage object to the artist who created it.</rdfs:comment>
+        <rdfs:label>hasCreator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#hasLocation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Museum"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Location"/>
+        <rdfs:comment>Links an institution to its location.</rdfs:comment>
+        <rdfs:label>hasLocation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#hasPart">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Collection"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>Links a collection to one of its objects.</rdfs:comment>
+        <rdfs:label>hasPart</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#locatedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Location"/>
+        <rdfs:comment>Links a heritage object or site to a location.</rdfs:comment>
+        <rdfs:label>locatedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#madeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#madeOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Material"/>
+        <rdfs:comment>States the material of an object.</rdfs:comment>
+        <rdfs:label>madeOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#manages -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#manages">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalInstitution"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Collection"/>
+        <rdfs:comment>Links an institution to a managed collection.</rdfs:comment>
+        <rdfs:label>manages</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#organizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#organizedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#ExhibitionEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalInstitution"/>
+        <rdfs:comment>Links an exhibition event to its organizer.</rdfs:comment>
+        <rdfs:label>organizedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#owns -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#owns">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Museum"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>Links a museum to an object it owns.</rdfs:comment>
+        <rdfs:label>owns</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#participatesInEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#participatesInEvent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Agent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Event"/>
+        <rdfs:comment>Links an agent to a heritage-related event.</rdfs:comment>
+        <rdfs:label>participatesInEvent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#preservedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#preservedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalInstitution"/>
+        <rdfs:comment>Links an object to the institution preserving it.</rdfs:comment>
+        <rdfs:label>preservedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#references -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#references">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#MediaObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>Links documentation to the heritage object it references.</rdfs:comment>
+        <rdfs:label>references</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#restoredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#restoredBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#RestorationEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Conservator"/>
+        <rdfs:comment>Links restoration activity to a conservator.</rdfs:comment>
+        <rdfs:label>restoredBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#restoresObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#restoresObject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#RestorationEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>Links a restoration event to the object restored.</rdfs:comment>
+        <rdfs:label>restoresObject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#acquisitionDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#acquisitionDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#AcquisitionEvent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Date when an object was acquired.</rdfs:comment>
+        <rdfs:label>acquisitionDate</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#conditionStatus -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#conditionStatus">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Current preservation condition.</rdfs:comment>
+        <rdfs:label>conditionStatus</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#creationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#creationDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Date or approximate date of creation.</rdfs:comment>
+        <rdfs:label>creationDate</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#estimatedValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#estimatedValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Estimated financial value.</rdfs:comment>
+        <rdfs:label>estimatedValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#fileFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#fileFormat">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#MediaObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Digital file format.</rdfs:comment>
+        <rdfs:label>fileFormat</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#hasDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Textual description of a resource.</rdfs:comment>
+        <rdfs:label>hasDescription</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#hasTitle">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Title or name of a heritage resource.</rdfs:comment>
+        <rdfs:label>hasTitle</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#height -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#height">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Height measurement.</rdfs:comment>
+        <rdfs:label>height</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#inventoryNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#inventoryNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Museum inventory identifier.</rdfs:comment>
+        <rdfs:label>inventoryNumber</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#materialType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#materialType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Material"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Material category name.</rdfs:comment>
+        <rdfs:label>materialType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#publicationYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#publicationYear">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#MediaObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:comment>Year of publication or documentation.</rdfs:comment>
+        <rdfs:label>publicationYear</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#width -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/culturalheritage-museum#width">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Width measurement.</rdfs:comment>
+        <rdfs:label>width</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#AcquisitionEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#AcquisitionEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Event"/>
+        <rdfs:comment>An event in which an object is obtained by an institution.</rdfs:comment>
+        <rdfs:label>AcquisitionEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Agent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Agent">
+        <rdfs:comment>A person or organization involved in heritage activities.</rdfs:comment>
+        <rdfs:label>Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Archive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Archive">
+        <rdfs:comment>A managed repository of records or heritage documentation.</rdfs:comment>
+        <rdfs:label>Archive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Artifact -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Artifact">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>A movable cultural object preserved by a museum or institution.</rdfs:comment>
+        <rdfs:label>Artifact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Artist -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Artist">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Agent"/>
+        <rdfs:comment>An agent who creates artworks or cultural objects.</rdfs:comment>
+        <rdfs:label>Artist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Artwork -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Artwork">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>A creative cultural object such as a painting or sculpture.</rdfs:comment>
+        <rdfs:label>Artwork</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Location"/>
+        <rdfs:comment>A city location.</rdfs:comment>
+        <rdfs:label>City</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Coin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Coin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artifact"/>
+        <rdfs:comment>A small metallic object used as currency or heritage evidence.</rdfs:comment>
+        <rdfs:label>Coin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Collection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Collection">
+        <rdfs:comment>A group of heritage objects managed together.</rdfs:comment>
+        <rdfs:label>Collection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Conservator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Conservator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Agent"/>
+        <rdfs:comment>An agent responsible for preservation and restoration work.</rdfs:comment>
+        <rdfs:label>Conservator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Location"/>
+        <rdfs:comment>A country location.</rdfs:comment>
+        <rdfs:label>Country</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject">
+        <rdfs:comment>A physical or digital resource with cultural heritage value.</rdfs:comment>
+        <rdfs:label>CulturalHeritageObject</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#CulturalInstitution -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#CulturalInstitution">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Agent"/>
+        <rdfs:comment>An organization involved in heritage preservation or education.</rdfs:comment>
+        <rdfs:label>CulturalInstitution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Curator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Curator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Agent"/>
+        <rdfs:comment>An agent responsible for managing collections and exhibitions.</rdfs:comment>
+        <rdfs:label>Curator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Event -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Event">
+        <rdfs:comment>An occurrence related to heritage objects or institutions.</rdfs:comment>
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Exhibition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Exhibition">
+        <rdfs:comment>A public presentation of heritage objects.</rdfs:comment>
+        <rdfs:label>Exhibition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#ExhibitionEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#ExhibitionEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Event"/>
+        <rdfs:comment>An event in which objects are displayed publicly.</rdfs:comment>
+        <rdfs:label>ExhibitionEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#HeritageSite -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#HeritageSite">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalHeritageObject"/>
+        <rdfs:comment>A location with historical, archaeological, or cultural importance.</rdfs:comment>
+        <rdfs:label>HeritageSite</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#HistoricalPeriod -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#HistoricalPeriod">
+        <rdfs:comment>A named time period relevant to cultural history.</rdfs:comment>
+        <rdfs:label>HistoricalPeriod</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Image -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Image">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#MediaObject"/>
+        <rdfs:comment>A visual documentation object.</rdfs:comment>
+        <rdfs:label>Image</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Location">
+        <rdfs:comment>A geographical place.</rdfs:comment>
+        <rdfs:label>Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Manuscript -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Manuscript">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artifact"/>
+        <rdfs:comment>A handwritten or historically significant written document.</rdfs:comment>
+        <rdfs:label>Manuscript</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Material -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Material">
+        <rdfs:comment>A substance used to create a heritage object.</rdfs:comment>
+        <rdfs:label>Material</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#MediaObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#MediaObject">
+        <rdfs:comment>A digital or physical documentation resource.</rdfs:comment>
+        <rdfs:label>MediaObject</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Museum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Museum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#CulturalInstitution"/>
+        <rdfs:comment>An institution that collects, preserves, and displays heritage objects.</rdfs:comment>
+        <rdfs:label>Museum</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Painting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Painting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artwork"/>
+        <rdfs:comment>An artwork created using paint on a surface.</rdfs:comment>
+        <rdfs:label>Painting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Researcher -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Researcher">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Agent"/>
+        <rdfs:comment>An agent who studies and documents heritage resources.</rdfs:comment>
+        <rdfs:label>Researcher</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#RestorationEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#RestorationEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Event"/>
+        <rdfs:comment>An event involving repair or conservation of an object.</rdfs:comment>
+        <rdfs:label>RestorationEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Sculpture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Sculpture">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artwork"/>
+        <rdfs:comment>A three-dimensional artwork.</rdfs:comment>
+        <rdfs:label>Sculpture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Textile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/culturalheritage-museum#Textile">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artifact"/>
+        <rdfs:comment>A heritage object made from woven or embroidered material.</rdfs:comment>
+        <rdfs:label>Textile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#LeonardoDaVinci -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#LeonardoDaVinci">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artist"/>
+        <rdfs:label>LeonardoDaVinci</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#LouvreCollection -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#LouvreCollection">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Collection"/>
+        <hasPart rdf:resource="http://www.semanticweb.org/culturalheritage-museum#MonaLisa"/>
+        <rdfs:label>LouvreCollection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#LouvreMuseum -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#LouvreMuseum">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Museum"/>
+        <hasLocation rdf:resource="http://www.semanticweb.org/culturalheritage-museum#ParisCity"/>
+        <rdfs:label>LouvreMuseum</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#MoMACollection -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#MoMACollection">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Collection"/>
+        <hasPart rdf:resource="http://www.semanticweb.org/culturalheritage-museum#TheStarryNight"/>
+        <rdfs:label>MoMACollection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#MonaLisa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#MonaLisa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Painting"/>
+        <associatedWithPeriod rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Renaissance"/>
+        <displayedIn rdf:resource="http://www.semanticweb.org/culturalheritage-museum#LouvreMuseum"/>
+        <hasCreator rdf:resource="http://www.semanticweb.org/culturalheritage-museum#LeonardoDaVinci"/>
+        <madeOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#OilPaint"/>
+        <conditionStatus>Protected</conditionStatus>
+        <hasTitle>Mona Lisa</hasTitle>
+        <inventoryNumber>LOUVRE-001</inventoryNumber>
+        <rdfs:label>MonaLisa</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#MuseumOfModernArt -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#MuseumOfModernArt">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Museum"/>
+        <hasLocation rdf:resource="http://www.semanticweb.org/culturalheritage-museum#NewYorkCity"/>
+        <rdfs:label>MuseumOfModernArt</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#NewYorkCity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#NewYorkCity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#City"/>
+        <rdfs:label>NewYorkCity</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#OilPaint -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#OilPaint">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Material"/>
+        <materialType>Paint</materialType>
+        <rdfs:label>OilPaint</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#ParisCity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#ParisCity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#City"/>
+        <rdfs:label>ParisCity</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#PostImpressionism -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#PostImpressionism">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#HistoricalPeriod"/>
+        <rdfs:label>PostImpressionism</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#Renaissance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#Renaissance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#HistoricalPeriod"/>
+        <rdfs:label>Renaissance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#TheStarryNight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#TheStarryNight">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Painting"/>
+        <associatedWithPeriod rdf:resource="http://www.semanticweb.org/culturalheritage-museum#PostImpressionism"/>
+        <displayedIn rdf:resource="http://www.semanticweb.org/culturalheritage-museum#MuseumOfModernArt"/>
+        <hasCreator rdf:resource="http://www.semanticweb.org/culturalheritage-museum#VincentVanGogh"/>
+        <madeOf rdf:resource="http://www.semanticweb.org/culturalheritage-museum#OilPaint"/>
+        <conditionStatus>Stable</conditionStatus>
+        <hasTitle>The Starry Night</hasTitle>
+        <inventoryNumber>MOMA-001</inventoryNumber>
+        <rdfs:label>TheStarryNight</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/culturalheritage-museum#VincentVanGogh -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/culturalheritage-museum#VincentVanGogh">
+        <rdf:type rdf:resource="http://www.semanticweb.org/culturalheritage-museum#Artist"/>
+        <rdfs:label>VincentVanGogh</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
