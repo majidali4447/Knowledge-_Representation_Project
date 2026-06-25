@@ -41,7 +41,8 @@ https://protege.stanford.edu/
 2. Select **File → Open**.
 3. Choose:
 
-```textCulturalHeritageOntology1.owl
+```text
+CulturalHeritageOntology1.owl
 ```
 
 ### Step 3 – Explore the Ontology
