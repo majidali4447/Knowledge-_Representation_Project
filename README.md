@@ -2,7 +2,6 @@
 
 ## OWL 2 Implimentation using pro Protégé
 
-
 ---
 
 ## 1. Knowledge Domain
